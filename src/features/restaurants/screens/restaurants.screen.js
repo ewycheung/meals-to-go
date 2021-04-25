@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { FlatList, TouchableOpacity } from "react-native";
-import { ActivityIndicator, Colors } from "react-native-paper";
+import { ActivityIndicator } from "react-native-paper";
+import { useTheme } from "styled-components";
 import styled from "styled-components/native";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
@@ -30,12 +31,17 @@ export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, restaurants } = useContext(RestaurantsContext);
   const { favourites } = useContext(FavouritesContext);
   const [isToggled, setIsToggled] = useState(false);
+  const theme = useTheme();
 
   return (
     <SafeArea>
       {isLoading && (
         <LoadingContainer>
-          <Loading size={50} animating={true} color={Colors.orange900} />
+          <Loading
+            size={50}
+            animating={true}
+            color={theme.colors.brand.primary}
+          />
         </LoadingContainer>
       )}
       <Search

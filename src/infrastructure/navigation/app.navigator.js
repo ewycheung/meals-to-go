@@ -1,5 +1,6 @@
 import React from "react";
 import { Text } from "react-native";
+import { useTheme } from "styled-components";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { RestaurantsNavigator } from "./restaurants.navigator";
@@ -33,11 +34,13 @@ const createScreenOptions = ({ route }) => {
 };
 
 export const AppNavigator = () => {
+  const theme = useTheme();
+
   return (
     <Tab.Navigator
       screenOptions={createScreenOptions}
       tabBarOptions={{
-        activeTintColor: "tomato",
+        activeTintColor: theme.colors.brand.primary,
         inactiveTintColor: "gray",
       }}
     >
