@@ -1,14 +1,15 @@
 import React from "react";
+import { SettingsScreen } from "../../features/settings/screens/settings.screen";
+import { FavouritesScreen } from "../../features/settings/screens/favourites.screen";
+import { CameraScreen } from "../../features/settings/screens/camera.screen";
 import {
   createStackNavigator,
   CardStyleInterpolators,
 } from "@react-navigation/stack";
-import { SettingsScreen } from "../../features/settings/screens/settings.screen";
-import { FavouritesScreen } from "../../features/settings/screens/favourites.screen";
 
 const SettingsStack = createStackNavigator();
 
-export const SettingsNavigator = ({ route, navigation }) => {
+export const SettingsNavigator = () => {
   return (
     <SettingsStack.Navigator
       headerMode="screen"
@@ -24,6 +25,7 @@ export const SettingsNavigator = ({ route, navigation }) => {
         component={SettingsScreen}
       />
       <SettingsStack.Screen name="Favourites" component={FavouritesScreen} />
+      <SettingsStack.Screen name="Camera" component={CameraScreen} />
     </SettingsStack.Navigator>
   );
 };
